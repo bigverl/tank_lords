@@ -19,3 +19,9 @@ Tank Lord is an open-world singleplayer tank battle game
 
 ### Static Meshes
 - Tank comprised of body, turret, barrel, tracks
+
+### Textures
+- Added later provided resources exist
+
+### Music
+- Background music to break up sound levels
