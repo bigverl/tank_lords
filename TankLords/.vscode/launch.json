@@ -1,0 +1,128 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "TankLords (Debug)",
+			"request": "launch",
+			"preLaunchTask": "TankLords Win64 Debug Build",
+			"program": "D:\\Users\\Verly\\Documents\\Unreal Projects\\tank_lords\\TankLords\\Binaries\\Win64\\UE4-Win64-Debug.exe",
+			"args": [
+			],
+			"cwd": "D:\\Program Files\\Epic Games\\UE_4.24",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "TankLords (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "TankLords Win64 DebugGame Build",
+			"program": "D:\\Users\\Verly\\Documents\\Unreal Projects\\tank_lords\\TankLords\\Binaries\\Win64\\UE4-Win64-DebugGame.exe",
+			"args": [
+			],
+			"cwd": "D:\\Program Files\\Epic Games\\UE_4.24",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "TankLords (Development)",
+			"request": "launch",
+			"preLaunchTask": "TankLords Win64 Development Build",
+			"program": "D:\\Users\\Verly\\Documents\\Unreal Projects\\tank_lords\\TankLords\\Binaries\\Win64\\UE4.exe",
+			"args": [
+			],
+			"cwd": "D:\\Program Files\\Epic Games\\UE_4.24",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "TankLords (Shipping)",
+			"request": "launch",
+			"preLaunchTask": "TankLords Win64 Shipping Build",
+			"program": "D:\\Users\\Verly\\Documents\\Unreal Projects\\tank_lords\\TankLords\\Binaries\\Win64\\UE4-Win64-Shipping.exe",
+			"args": [
+			],
+			"cwd": "D:\\Program Files\\Epic Games\\UE_4.24",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "TankLords (Test)",
+			"request": "launch",
+			"preLaunchTask": "TankLords Win64 Test Build",
+			"program": "D:\\Users\\Verly\\Documents\\Unreal Projects\\tank_lords\\TankLords\\Binaries\\Win64\\UE4-Win64-Test.exe",
+			"args": [
+			],
+			"cwd": "D:\\Program Files\\Epic Games\\UE_4.24",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "TankLordsEditor (Debug)",
+			"request": "launch",
+			"preLaunchTask": "TankLordsEditor Win64 Debug Build",
+			"program": "D:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Binaries\\Win64\\UE4Editor-Win64-Debug.exe",
+			"args": [
+				"D:\\Users\\Verly\\Documents\\Unreal Projects\\tank_lords\\TankLords\\TankLords.uproject"
+			],
+			"cwd": "D:\\Program Files\\Epic Games\\UE_4.24",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "TankLordsEditor (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "TankLordsEditor Win64 DebugGame Build",
+			"program": "D:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Binaries\\Win64\\UE4Editor-Win64-DebugGame.exe",
+			"args": [
+				"D:\\Users\\Verly\\Documents\\Unreal Projects\\tank_lords\\TankLords\\TankLords.uproject"
+			],
+			"cwd": "D:\\Program Files\\Epic Games\\UE_4.24",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "TankLordsEditor (Development)",
+			"request": "launch",
+			"preLaunchTask": "TankLordsEditor Win64 Development Build",
+			"program": "D:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Binaries\\Win64\\UE4Editor.exe",
+			"args": [
+				"D:\\Users\\Verly\\Documents\\Unreal Projects\\tank_lords\\TankLords\\TankLords.uproject"
+			],
+			"cwd": "D:\\Program Files\\Epic Games\\UE_4.24",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "Generate Project Files",
+			"type": "clr",
+			"request": "launch",
+			"program": "D:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Binaries\\DotNET\\UnrealBuildTool.exe",
+			"console": "externalTerminal",
+			"args": [
+				"-projectfiles",
+				"-vscode",
+				"-project=\"D:\\Users\\Verly\\Documents\\Unreal Projects\\tank_lords\\TankLords\\TankLords.uproject\"",
+				"-game",
+				"-engine"
+			],
+			"internalConsoleOptions": "openOnSessionStart",
+			"cwd": "D:\\Program Files\\Epic Games\\UE_4.24"
+		}
+	]
+}
