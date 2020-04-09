@@ -13,17 +13,17 @@ UCLASS()
 class TANKLORDS_API ATankAIController : public AAIController
 {
 	GENERATED_BODY()
-public: 
+
+private:
+	// Methods to execute upon game start
+	virtual void BeginPlay() override;
+
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
 
 	// Reference tank being possessed
 	ATank* GetControlledTank() const;
 
 	// Get Player Tank
 	ATank* GetPlayerTank() const;
-
-	// Methods to execute upon game start
-	virtual void BeginPlay() override;
-
-	// Aim at Player
-	// void AimAt(Player);
 };
