@@ -2,12 +2,11 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "TankAimingComponent.generated.h"
 
-// Forward Declaration
+// Forward Declarations
 class UTankBarrel;
 
 // Hold barrel's properties

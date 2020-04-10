@@ -27,16 +27,28 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 	// Declare Launch Velocity
 	FVector OutLaunchVelocity(0);
 	FVector StartLocation = Barrel->GetSocketLocation(FName("Projectile"));
-	bool HaveAimSolution = UGameplayStatics::SuggestProjectileVelocity(this, OutLaunchVelocity, StartLocation, HitLocation, 
-																		LaunchSpeed, ESuggestProjVelocityTraceOption::DoNotTrace);
+	bool bHaveAimSolution = UGameplayStatics::SuggestProjectileVelocity
+	(
+		this,
+		OutLaunchVelocity,
+		StartLocation,
+		HitLocation,
+		LaunchSpeed,
+		false,
+		0,
+		0,
+		ESuggestProjVelocityTraceOption::DoNotTrace	
+	);
 	// Calculate OutLaunchVelocity
-	if(HaveAimSolution)
+	if(bHaveAimSolution)
 	{
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
 		MoveBarrelTowards(AimDirection);
-			// Logging
-		//auto TankName = GetOwner()->GetName();
-		//UE_LOG(LogTemp, Warning, TEXT("%s aiming at %s"), *TankName, *AimDirection.ToString());
+
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("NO AIMING SOLUTION FOUND"));
 	}
 }
 
@@ -45,10 +57,12 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	// Get difference between current barrel rotation and AimDirection
 	auto BarrelRotator = Barrel->GetForwardVector().Rotation();
 	auto AimAsRotator = AimDirection.Rotation();
-	auto DeltaRotator = AimAsRotator = BarrelRotator;
+	auto DeltaRotator = AimAsRotator - BarrelRotator;
 
-	//UE_LOG(LogTemp, Warning, TEXT("AimAsRotator: %s"), *DeltaRotator.ToString());
-	
+	// LOGGING
+	auto TankName = GetOwner()->GetName();
+	UE_LOG(LogTemp, Warning, TEXT("DeltaRotator is: %s"), *DeltaRotator.ToString());
+
 	Barrel->Elevate(5);
-	UE_LOG(LogTemp, Warning, TEXT("Barrel->Elevate() called"));
+	
 }
