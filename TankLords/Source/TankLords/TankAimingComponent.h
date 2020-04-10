@@ -4,31 +4,37 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Kismet/GameplayStatics.h"
 #include "TankAimingComponent.generated.h"
 
+// Forward Declaration
+class UTankBarrel;
 
+// Hold barrel's properties
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class TANKLORDS_API UTankAimingComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
 public:	
-	// Called when the game starts
-	virtual void BeginPlay() override;
-
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
 	// Default constructor
 	UTankAimingComponent();
 
 	// Set Barrel location
-	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
+	void SetBarrelReference(UTankBarrel* BarrelToSet);
+
+	// TOOD add SetTurretReference
 
 	// Aim at specific tank
 	void AimAt(FVector HitLocation, float LaunchSpeed);
 
 private:
-	UStaticMeshComponent* Barrel = nullptr;
+		// Helper functions
+
+	// Move barrel toward HitLocation
+	void MoveBarrelTowards(FVector AimDirection);
+
+		// Attributes
+	UTankBarrel* Barrel = nullptr;
 		
 };
