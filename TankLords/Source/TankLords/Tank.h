@@ -15,9 +15,6 @@ class TANKLORDS_API ATank : public APawn
 	GENERATED_BODY()
 	
 public:	
-	// Aim at specific location
-	void AimAt(FVector HitLocation);
-
 	// Set barrel reference
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void SetBarrelReference(UTankBarrel* BarrelToSet);
@@ -25,6 +22,12 @@ public:
 	// Set turret reference
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void SetTurretReference(UTankTurret* TurretToSet);
+
+	// Aim at specific location
+	void AimAt(FVector HitLocation);
+
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	void Fire();
 
 protected:
 UTankAimingComponent* TankAimingComponent = nullptr;
@@ -40,10 +43,9 @@ private:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 			// ATTRIBUTES
-
 	// Firing speed of projectile
 	UPROPERTY(EditAnywhere, Category = Firing)
-	float LaunchSpeed = 100000.f; // Starting value is 1000 m/s
+	float LaunchSpeed = 4000.f; // Starting value is 1000 m/s
 
 
 	
