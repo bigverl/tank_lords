@@ -2,18 +2,28 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
-#include "Tank.generated.h"
+#include "TankAimingComponent.h"
+#include "Tank.generated.h" // Put all includes above this
+
+// Forward Declarations
+class UTankBarrel;
 
 UCLASS()
 class TANKLORDS_API ATank : public APawn
 {
 	GENERATED_BODY()
-
-
+	
 public:	
+	// Aim at specific location
 	void AimAt(FVector HitLocation);
+
+	// Set barrel reference
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	void SetBarrelReference(UTankBarrel* BarrelToSet);
+
+protected:
+UTankAimingComponent* TankAimingComponent = nullptr;;
 
 private:
 	// Sets default values for this pawn's properties
@@ -27,6 +37,13 @@ private:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+			// ATTRIBUTES
+
+	// Firing speed of projectile
+	UPROPERTY(EditAnywhere, Category = Firing)
+	float LaunchSpeed = 100000.f; // Starting value is 1000 m/s
+
 
 	
 };
