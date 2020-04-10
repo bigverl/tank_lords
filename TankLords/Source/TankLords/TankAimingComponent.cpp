@@ -48,7 +48,8 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 	}
 	else
 	{
-		UE_LOG(LogTemp, Error, TEXT("NO AIMING SOLUTION FOUND"));
+		auto Time = GetWorld()->GetTimeSeconds();
+		UE_LOG(LogTemp, Error, TEXT("%f: NO AIMING SOLUTION FOUND"), Time);
 	}
 }
 
@@ -63,6 +64,6 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	auto TankName = GetOwner()->GetName();
 	UE_LOG(LogTemp, Warning, TEXT("DeltaRotator is: %s"), *DeltaRotator.ToString());
 
-	Barrel->Elevate(5);
+	Barrel->Elevate(DeltaRotator.Pitch); // TODO THIS MIGHT BE BROKEN
 	
 }
