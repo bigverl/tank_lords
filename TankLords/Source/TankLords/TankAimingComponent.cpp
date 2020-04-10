@@ -1,5 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "TankBarrel.h"
+#include "TankTurret.h"
 #include "TankAimingComponent.h"
 
 // Default Constructor
@@ -18,11 +19,27 @@ void UTankAimingComponent::SetBarrelReference(UTankBarrel* BarrelToSet)
 	Barrel = BarrelToSet;
 }
 
+// Set Turret location
+void UTankAimingComponent::SetTurretReference(UTankTurret* TurretToSet)
+{
+	Turret = TurretToSet;
+}
+
 // Aim at specific location
 void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 {
 	// Protect pointer. Should probably have been done in header, tbh
-	if (!Barrel) { return; }
+	if (!Barrel)
+	{ 
+		UE_LOG(LogTemp, Error, TEXT("NO BARREL SET"));
+		return; 
+	}
+
+	if(!Turret)
+	{
+		UE_LOG(LogTemp, Error, TEXT("NO TURRET SET"));
+		return;
+	}
 
 	// Declare Launch Velocity
 	FVector OutLaunchVelocity(0);
@@ -65,5 +82,6 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	UE_LOG(LogTemp, Warning, TEXT("DeltaRotator is: %s"), *DeltaRotator.ToString());
 
 	Barrel->Elevate(DeltaRotator.Pitch); // TODO THIS MIGHT BE BROKEN
+	Turret->Rotate(DeltaRotator.Yaw); // TODO TEST
 	
 }
