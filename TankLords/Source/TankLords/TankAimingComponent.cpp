@@ -79,7 +79,7 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 
 	// LOGGING
 	auto TankName = GetOwner()->GetName();
-	UE_LOG(LogTemp, Warning, TEXT("DeltaRotator is: %s"), *DeltaRotator.ToString());
+	//UE_LOG(LogTemp, Warning, TEXT("DeltaRotator is: %s"), *DeltaRotator.ToString());
 
 	Barrel->Elevate(DeltaRotator.Pitch); // TODO THIS MIGHT BE BROKEN
 	Turret->Rotate(DeltaRotator.Yaw); // TODO TEST

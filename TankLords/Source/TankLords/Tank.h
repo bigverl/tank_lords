@@ -3,11 +3,12 @@
 #pragma once
 
 #include "GameFramework/Pawn.h"
-#include "TankAimingComponent.h"
 #include "Tank.generated.h" // Put all includes above this
 
 // Forward Declarations
+class UTankAimingComponent;
 class UTankBarrel;
+class AProjectile;
 
 UCLASS()
 class TANKLORDS_API ATank : public APawn
@@ -47,6 +48,10 @@ private:
 	UPROPERTY(EditAnywhere, Category = Firing)
 	float LaunchSpeed = 4000.f; // Starting value is 1000 m/s
 
+	UPROPERTY(EditAnywhere, Category = Setup)
+	TSubclassOf<AProjectile> ProjectileBlueprint;
 
+	// Local barrel reference for spawning projectile
+	UTankBarrel* Barrel = nullptr;
 	
 };
