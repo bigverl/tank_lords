@@ -6,7 +6,7 @@
 #include "TankTurret.generated.h"
 
 /**
- * 
+ * TankTurret is used to establish parameters for player's horizontal aiming
  */
 UCLASS( meta = (BlueprintSpawnableComponent) )
 class TANKLORDS_API UTankTurret : public UStaticMeshComponent

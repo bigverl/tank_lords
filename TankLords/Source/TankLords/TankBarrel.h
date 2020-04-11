@@ -6,7 +6,7 @@
 #include "TankBarrel.generated.h"
 
 /**
- * 
+ * TankBarrel is used to establish parameters for player's vertical aiming
  */
 UCLASS( meta = (BlueprintSpawnableComponent) )
 class TANKLORDS_API UTankBarrel : public UStaticMeshComponent
