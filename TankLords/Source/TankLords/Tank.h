@@ -44,20 +44,21 @@ private:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 			// ATTRIBUTES
+	// Implement projectile blueprint into tank BP
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	TSubclassOf<AProjectile> ProjectileBlueprint;
+	
 	// Firing speed of projectile
-	UPROPERTY(EditAnywhere, Category = Firing)
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
 	float LaunchSpeed = 4000.f; // Starting value is 1000 m/s
 
-	UPROPERTY(EditAnywhere, Category = Setup)
-	TSubclassOf<AProjectile> ProjectileBlueprint;
+	// Firing rate limitation
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	float ReloadTimeInSeconds = 3.f;
+	double LastFireTime = 0.f;
 
 	// Local barrel reference for spawning projectile
 	UTankBarrel* Barrel = nullptr;
-
-	// Firing rate limitation
-	UPROPERTY(EditAnywhere, Category = Firing)
-	float ReloadTimeInSeconds = 3.f;
-
-	double LastFireTime = 0.f;
+	
 	
 };
