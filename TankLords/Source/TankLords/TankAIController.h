@@ -20,10 +20,4 @@ private:
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-	// Reference tank being possessed
-	ATank* GetControlledTank() const;
-
-	// Get Player Tank
-	ATank* GetPlayerTank() const;
 };
