@@ -49,7 +49,6 @@ void ATank::AimAt(FVector HitLocation)
 // Fire Cannon
 void ATank::Fire()
 {
-	UE_LOG(LogTemp, Warning, TEXT("FIRING"));
 	if(!Barrel)
 	{
 		UE_LOG(LogTemp, Error, TEXT("NO LOCAL BARREL SET"));
@@ -57,17 +56,14 @@ void ATank::Fire()
 	}
 
 	// Spawn projectile at socket location
-	//FVector BarrelSocketLocation = Barrel->GetSocketLocation(FName("Projectile"));
-	//FRotator BarrelSocketRotation = Barrel->GetSocketRotation(FName("Projectile"));
-
-	//GetWorld()->SpawnActor<AProjectile>(ProjectileBlueprint, BarrelSocketLocation, BarrelSocketRotation);
-
-	GetWorld()->SpawnActor<AProjectile>(
+	auto Projectile = GetWorld()->SpawnActor<AProjectile>(
 		ProjectileBlueprint, 
-		Barrel->GetSocketLocation(FName("Projectile")),
+		Barrel->GetSocketLocation(FName("Projectile")), 
 		Barrel->GetSocketRotation(FName("Projectile"))
 		);
 
+	// Launch Projectile
+	Projectile->LaunchProjectile(LaunchSpeed);
 
 	
 }
