@@ -2,6 +2,7 @@
 #include "TankBarrel.h"
 #include "Projectile.h"
 #include "TankAimingComponent.h"
+#include "TankMovementComponent.h"
 #include "Tank.h"
 
 // Sets default values
@@ -12,6 +13,9 @@ ATank::ATank()
 
 	// Create Aiming Component
 	TankAimingComponent = CreateDefaultSubobject<UTankAimingComponent>(FName("Aiming Component"));
+	// Create Movement Component
+	TankMovementComponent = CreateDefaultSubobject<UTankMovementComponent>(FName("Movement Component"));
+
 }
 
 // Called when the game starts or when spawned
@@ -44,7 +48,6 @@ void ATank::AimAt(FVector HitLocation)
 {
 	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 }
-
 
 // Fire Cannon
 void ATank::Fire()
