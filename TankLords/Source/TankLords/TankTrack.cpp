@@ -5,7 +5,6 @@
 
 void UTankTrack::SetThrottle(float Throttle)
 {
-    // TODO Clamp throttle value so player can't overdrive
     auto ForceApplied = GetForwardVector() * Throttle * TrackMaxDrivingForce; // FVector of force applied
     auto ForceLocation = GetComponentLocation(); // FVector of track
 

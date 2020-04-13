@@ -13,9 +13,6 @@ ATank::ATank()
 
 	// Create Aiming Component
 	TankAimingComponent = CreateDefaultSubobject<UTankAimingComponent>(FName("Aiming Component"));
-	// Create Movement Component
-	TankMovementComponent = CreateDefaultSubobject<UTankMovementComponent>(FName("Movement Component"));
-
 }
 
 // Called when the game starts or when spawned
