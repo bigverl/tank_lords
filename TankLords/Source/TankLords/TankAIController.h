@@ -20,4 +20,7 @@ private:
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	// How close the AI can get to player
+	float AcceptanceRadius = 3000;
 };
