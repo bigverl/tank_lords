@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright Weston Mathews 2020
 
 #pragma once
 
@@ -14,7 +14,7 @@ class TANKLORDS_API UTankTrack : public UStaticMeshComponent
 	GENERATED_BODY()
 
 public:
-	UFUNCTION(BluePrintCallable, Category = Input)
+	UFUNCTION(BluePrintCallable, Category = "Input")
 	void SetThrottle(float Throttle);
 
 	// Max force per track in newtons
