@@ -41,8 +41,6 @@ void UTankMovementComponent::IntendTurnRight(float Throw)
     }
     LeftTrack->SetThrottle(Throw);
     RightTrack->SetThrottle(-Throw);
-
-    //TODO PREVENT DOUBLE MOVEMENT
 }
 
 void UTankMovementComponent::IntendMoveBackward(float Throw)
@@ -56,8 +54,6 @@ void UTankMovementComponent::IntendMoveBackward(float Throw)
     }
     LeftTrack->SetThrottle(-Throw);
     RightTrack->SetThrottle(-Throw);
-
-    //TODO PREVENT DOUBLE MOVEMENT
 }
 
 void UTankMovementComponent::IntendTurnLeft(float Throw)
@@ -71,8 +67,6 @@ void UTankMovementComponent::IntendTurnLeft(float Throw)
     }
     LeftTrack->SetThrottle(-Throw);
     RightTrack->SetThrottle(Throw);
-
-    //TODO PREVENT DOUBLE MOVEMENT
 }
 
 // Determine if move is valid
@@ -84,12 +78,9 @@ void UTankMovementComponent::RequestDirectMove(const FVector &MoveVelocity, bool
     auto TankForward = GetOwner()->GetActorForwardVector().GetSafeNormal();
     auto AIForwardIntention = MoveVelocity.GetSafeNormal();
     auto ForwardThrow = FVector::DotProduct(TankForward, AIForwardIntention);
-    // forwardMovement disabled for rotation implementation
-    //IntendMoveForward(ForwardThrow);
+    IntendMoveForward(ForwardThrow);
 
     // Rotation/Turning movement
     auto RightThrow = FVector::CrossProduct(TankForward, AIForwardIntention).Z;
     IntendTurnRight(RightThrow);
-
-
 }
