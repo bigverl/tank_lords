@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright Weston Mathews 2020
 
 #include "TankTrack.h"
 #include "TankMovementComponent.h"
@@ -41,8 +41,6 @@ void UTankMovementComponent::IntendTurnRight(float Throw)
     }
     LeftTrack->SetThrottle(Throw);
     RightTrack->SetThrottle(-Throw);
-
-    //TODO PREVENT DOUBLE MOVEMENT
 }
 
 void UTankMovementComponent::IntendMoveBackward(float Throw)
@@ -56,8 +54,6 @@ void UTankMovementComponent::IntendMoveBackward(float Throw)
     }
     LeftTrack->SetThrottle(-Throw);
     RightTrack->SetThrottle(-Throw);
-
-    //TODO PREVENT DOUBLE MOVEMENT
 }
 
 void UTankMovementComponent::IntendTurnLeft(float Throw)
@@ -71,8 +67,6 @@ void UTankMovementComponent::IntendTurnLeft(float Throw)
     }
     LeftTrack->SetThrottle(-Throw);
     RightTrack->SetThrottle(Throw);
-
-    //TODO PREVENT DOUBLE MOVEMENT
 }
 
 // Determine if move is valid
@@ -80,6 +74,13 @@ void UTankMovementComponent::RequestDirectMove(const FVector &MoveVelocity, bool
 {
     // No need to call super since we're replacing functionality
 
-    auto TankName = GetOwner()->GetName();
-    UE_LOG(LogTemp, Warning, TEXT("%s vectoring to %s"), *TankName, *MoveVelocity.ToString());
+    // Forward/Backward movement
+    auto TankForward = GetOwner()->GetActorForwardVector().GetSafeNormal();
+    auto AIForwardIntention = MoveVelocity.GetSafeNormal();
+    auto ForwardThrow = FVector::DotProduct(TankForward, AIForwardIntention);
+    IntendMoveForward(ForwardThrow);
+
+    // Rotation/Turning movement
+    auto RightThrow = FVector::CrossProduct(TankForward, AIForwardIntention).Z;
+    IntendTurnRight(RightThrow);
 }

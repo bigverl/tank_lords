@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright Weston Mathews 2020
 
 #pragma once
 
@@ -19,23 +19,23 @@ class TANKLORDS_API ATank : public APawn
 	
 public:	
 	// Set barrel reference
-	UFUNCTION(BlueprintCallable, Category = Setup)
+	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void SetBarrelReference(UTankBarrel* BarrelToSet);
 
 	// Set turret reference
-	UFUNCTION(BlueprintCallable, Category = Setup)
+	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void SetTurretReference(UTankTurret* TurretToSet);
 
 	// Aim at specific location
 	void AimAt(FVector HitLocation);
 
-	UFUNCTION(BlueprintCallable, Category = Setup)
+	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void Fire();
 
 protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;
 
-	UPROPERTY(BlueprintReadOnly, Category = Setup)
+	UPROPERTY(BlueprintReadOnly, Category = "Setup")
 	UTankMovementComponent* TankMovementComponent = nullptr;
 
 private:
@@ -50,15 +50,15 @@ private:
 
 			// ATTRIBUTES
 	// Implement projectile blueprint into tank BP
-	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	TSubclassOf<AProjectile> ProjectileBlueprint;
 	
 	// Firing speed of projectile
-	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float LaunchSpeed = 4000.f; // Starting value is 1000 m/s
 
 	// Firing rate limitation
-	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float ReloadTimeInSeconds = 3.f;
 	double LastFireTime = 0.f;
 

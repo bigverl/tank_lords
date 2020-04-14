@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright Weston Mathews 2020
 #include "TankBarrel.h"
 #include "TankTurret.h"
 #include "TankAimingComponent.h"
@@ -81,7 +81,7 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	auto TankName = GetOwner()->GetName();
 	//UE_LOG(LogTemp, Warning, TEXT("DeltaRotator is: %s"), *DeltaRotator.ToString());
 
-	Barrel->Elevate(DeltaRotator.Pitch); // TODO THIS MIGHT BE BROKEN
-	Turret->Rotate(DeltaRotator.Yaw); // TODO TEST
+	Barrel->Elevate(DeltaRotator.Pitch);
+	Turret->Rotate(DeltaRotator.Yaw);
 	
 }
